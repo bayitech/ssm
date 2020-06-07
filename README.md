@@ -1,0 +1,2 @@
+# ssm
+automation script sample
