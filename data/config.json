@@ -1,9 +1,11 @@
 {
   "version" : 1,
   "target" : [
-    "R3CMA0GCGA"
+    "R3CMA0GCGA",
+    "R3CMA0GCGB"
   ],
   "testcase" : [
-    "tc01_connect_open_wlan"
+    "tc01_connect_open_wlan",
+    "tc02_connect_psk_wlan"
   ]
 }

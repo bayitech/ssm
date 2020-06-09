@@ -18,9 +18,9 @@ class ConfigDecoder:
     """
     dev_id = []
     testcase = []
-    cfg_file = "../../data/config.json"
+    cfg_file = ""
 
-    def __init__(self, cfg_file: str):
+    def __init__(self, cfg_file="../../data/config.json"):
         self.cfg_file = cfg_file
 
         # open config file and load it
@@ -29,6 +29,12 @@ class ConfigDecoder:
         with open(self.cfg_file) as fp:
             self.config = json.load(fp)
         print(self.config)
+        print(self.config['version'])
+        print(self.config['target'])
+        print(self.config['testcase'])
+
+        for device in self.config['target']:
+            print(device)
         return
 
 
