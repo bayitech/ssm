@@ -1,4 +1,7 @@
+from time import sleep
+
 from ppadb.client import Client as AdbClient
+from stp_lib.devices import get_selected_device
 import logging
 
 '''
@@ -9,7 +12,7 @@ python script to manage Android devices
 '''
 
 
-class AndroidDevices:
+class SSMAndroidDevices:
 
     """
         AndroidDevices class
@@ -19,6 +22,8 @@ class AndroidDevices:
     def __init__(self, host: object, port: int) -> object:
         self.client = AdbClient(host, port)
         self.devices = self.client.devices()
+        self.stp_devices = get_selected_device()
+        self.stp_devices.startActivity('com.android.settings/.Settings')
         if self.devices.__len__() <= 0:
             logging.critical("There are no devices connected")
             self.num_of_device = 0
@@ -48,7 +53,7 @@ class AndroidDevices:
 
 
 # instantiate object with default values
-androidDevices = AndroidDevices("127.0.0.1", 5037)
+androidDevices = SSMAndroidDevices("127.0.0.1", 5037)
 
 # call print function to print devices found by adb executable
 androidDevices.print_devices()

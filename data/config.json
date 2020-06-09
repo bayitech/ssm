@@ -1,0 +1,9 @@
+{
+  "version" : 1,
+  "target" : [
+    "R3CMA0GCGA"
+  ],
+  "testcase" : [
+    "tc01_connect_open_wlan"
+  ]
+}
