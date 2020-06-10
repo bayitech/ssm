@@ -29,13 +29,12 @@ class ConfigDecoder:
         with open(self.cfg_file) as fp:
             self.config = json.load(fp)
         print(self.config)
-        print(self.config['version'])
-        print(self.config['target'])
-        print(self.config['testcase'])
+        #print(self.config['version'])
+        print(self.config['devices'])
+        print(self.config['testcases'])
 
-        for device in self.config['target']:
+        for device in self.config['devices']:
             print(device)
         return
-
 
 cfg = ConfigDecoder()

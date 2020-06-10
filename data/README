@@ -4,4 +4,45 @@
 //                                                                           //
 ///////////////////////////////////////////////////////////////////////////////
 
-README file is intended to provide the information on how to create a new configuration file
+JSON formatted configuration file to setup the testing environment.
+
+===============================================================================
+Configuration Detail
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+See below description about JSON element
+===============================================================================
+devices: Android devices used in testing infra structure
+    - dev_id: serial number of device
+    - type: a role during the test (TARGET, SNIFFER, HOTSPOT...etc)
+    - firmware: FW version if need to be specified
+    - carrier: carrier information if any (NONE, SKT, ATT, TMB ...etc)
+    - apk: list of APKs to be installed during the test
+    - wifi_mac: wifi mac address
+    - ip_addr: ip address of the device (0.0.0.0 if DHCP, otherwise static ip)
+    - ip6_addr: ipv6 address of the device (::0 if DHCP, otherwise static ip)
+
+testcases: testcase name to be running
+    - name: testcase name to be executed
+
+user_account: social account information needed for the test
+    - username: username to use
+    - password: account password
+    - type: account type (GOOGLE, SAMSUNG, FB, TWITTER, INSTAGRAM ... etc)
+
+wlan: WLAN profile
+    - ssid: SSID name
+    - auth: authentication type (OPEN, WEP, WPA2-8021X, WPA3-PSK, WPA2-PSK ...etc)
+    - eap: EAP method (TLS, TTLS, PWD, SIM, AKA, AKA2 ...etc)
+    - username: if required
+    - password: if required
+    - cert: full path to certificate used to connect WLAN (if required)
+    - pmf: 802.11w configuration (NONE, REQUIRED, OPTIONAL)
+    - ft: 802.11r
+    - hotspot: if supported
+    - wifi_direct: wifi-direct if supported
+===============================================================================
+
+
+
+
+

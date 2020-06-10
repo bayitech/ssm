@@ -1,11 +1,54 @@
 {
-  "version" : 1,
-  "target" : [
-    "R3CMA0GCGA",
-    "R3CMA0GCGB"
+  "devices" : [
+    {
+      "dev_id": "R3CMA0GCGA",
+      "type": "TARGET",
+      "firmware": null,
+      "carrier": "NONE",
+      "apk": [
+        "Keystring"
+      ],
+      "wifi_mac": "74:9E:F5:34:62:61",
+      "ip_addr": "0.0.0.0",
+      "ip6_addr": "::0"
+    },
+    {
+      "dev_id": "R3CMA0GCGB",
+      "type": "SNIFFER",
+      "firmware": null,
+      "apk": [
+        "Keystring",
+        "Sniffer"
+      ],
+      "wifi_mac": "74:9E:F5:34:62:5F",
+      "ip_addr": "0.0.0.0",
+      "ip6_addr": "::0"
+    }
   ],
-  "testcase" : [
+  "testcases" : [
     "tc01_connect_open_wlan",
     "tc02_connect_psk_wlan"
+  ],
+  "user_account" : [
+    {
+      "username": "sqe1.gumi@gmail.com",
+      "password": "Samsung2020!",
+      "type": "SAMSUNG"
+    }
+  ],
+
+  "wlan" : [
+    {
+      "ssid": "WIFI_WPA2/PSK test",
+      "auth": "WPA2-PSK",
+      "eap": "NONE",
+      "username": "NONE",
+      "password": "psktest1234",
+      "cert": "NONE",
+      "pmf": false,
+      "ft": false,
+      "hotspot": false,
+      "wifi_direct": false
+    }
   ]
 }

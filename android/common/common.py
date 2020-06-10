@@ -1,7 +1,6 @@
 from time import sleep
 
 from ppadb.client import Client as AdbClient
-from stp_lib.devices import get_selected_device
 import logging
 
 '''
@@ -22,8 +21,6 @@ class SSMAndroidDevices:
     def __init__(self, host: object, port: int) -> object:
         self.client = AdbClient(host, port)
         self.devices = self.client.devices()
-        self.stp_devices = get_selected_device()
-        self.stp_devices.startActivity('com.android.settings/.Settings')
         if self.devices.__len__() <= 0:
             logging.critical("There are no devices connected")
             self.num_of_device = 0
