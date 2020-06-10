@@ -2,7 +2,7 @@
 # ! -*- coding:utf-8 -*-
 
 import logging
-
+import sys
 
 class STPLogging:
     """
@@ -18,12 +18,16 @@ class STPLogging:
         self.file_name = file
 
         # change basic configuration for logging
-        logging.basicConfig(filename=file, filemode='w', format='%(asctime)s %(levelname)-8s %(message)s',
+        logging.basicConfig(filename=file, filemode='w', format='%(asctime)s %(funcName)s %(levelname)s: %(message)s',
                             datefmt='%Y-%m-%d %H:%M:%S', level=logging.INFO)
-        #  logging.FileHandler(self.file_name)
-        console = logging.StreamHandler()
-        console.setLevel(logging.INFO)
-        logging.info('HELLO')
+        # logging.getLogger().addHandler(logging.StreamHandler(sys.stdout))
+
+        console = logging.StreamHandler(sys.stdout)
+        # set a format which is simpler for console use
+        formatter = logging.Formatter("%(asctime)s %(levelname)s: %(message)s")
+        console.setFormatter(formatter)
+        # add the handler to the root logger
+        logging.getLogger('').addHandler(console)
         return
 
     def stp_logging(self, message: str):
@@ -32,4 +36,4 @@ class STPLogging:
 
 
 logger = STPLogging()
-logger.stp_logging("yes baby")
+logger.stp_logging("baby")
